@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Update Medical Record</h1>
+
+<a href="{% url 'record_list' %}">
+
+Back
+
+</a>
+
+<form method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button>
+
+Update
+
+</button>
+
+</form>
+
+{% endblock %}

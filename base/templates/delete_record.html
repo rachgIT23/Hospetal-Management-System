@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h2>
+
+Are you sure you want to delete this Medical Record?
+
+</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<button>
+
+Yes Delete
+
+</button>
+
+<a href="{% url 'record_list' %}">
+
+Cancel
+
+</a>
+
+</form>
+
+{% endblock %}

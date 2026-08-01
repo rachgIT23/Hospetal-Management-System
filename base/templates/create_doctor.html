@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Add Doctor</h1>
+
+<a href="{% url 'doctor_list' %}">View All Doctors</a>
+
+<form method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">
+
+        Submit
+
+    </button>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Patient History</h1>
+
+<a href="{% url 'patient_list' %}">
+
+Back
+
+</a>
+
+<table border="1">
+
+<tr>
+
+<th>SL NO</th>
+
+<th>Name</th>
+
+<th>Deleted Time</th>
+
+<th>Action</th>
+
+</tr>
+
+{% for i in data %}
+
+<tr>
+
+<td>{{ forloop.counter }}</td>
+
+<td>{{ i.patient_name }}</td>
+
+<td>{{ i.deleted_at }}</td>
+
+<td>
+
+<a href="{% url 'restore_patient' i.id %}">
+
+Restore
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

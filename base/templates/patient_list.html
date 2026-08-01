@@ -1,0 +1,93 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Patient List</h1>
+
+<a href="{% url 'create_patient' %}">Add Patient</a>
+
+|
+
+<a href="{% url 'patient_history' %}">
+
+View Deleted Patients
+
+</a>
+
+<table border="1">
+
+<tr>
+
+<th>SL NO</th>
+
+<th>Name</th>
+
+<th>Age</th>
+
+<th>Gender</th>
+
+<th>Phone</th>
+
+<th>Email</th>
+
+<th>Address</th>
+
+<th>Photo</th>
+
+<th>Action</th>
+
+</tr>
+
+{% for i in data %}
+
+<tr>
+
+<td>{{ forloop.counter }}</td>
+
+<td>{{ i.patient_name }}</td>
+
+<td>{{ i.age }}</td>
+
+<td>{{ i.gender }}</td>
+
+<td>{{ i.phone }}</td>
+
+<td>{{ i.email }}</td>
+
+<td>{{ i.address }}</td>
+
+<td>
+
+{% if i.patient_image %}
+
+<img src="{{ i.patient_image.url }}" width="100">
+
+{% endif %}
+
+</td>
+
+<td>
+
+<a href="{% url 'update_patient' i.id %}">
+
+Edit
+
+</a>
+
+|
+
+<a href="{% url 'delete_patient' i.id %}">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

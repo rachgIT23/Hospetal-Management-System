@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Medical Record History</h1>
+
+<a href="{% url 'record_list' %}">
+
+Back
+
+</a>
+
+<table border="1">
+
+<tr>
+
+<th>SL NO</th>
+
+<th>Patient</th>
+
+<th>Doctor</th>
+
+<th>Deleted Time</th>
+
+<th>Action</th>
+
+</tr>
+
+{% for i in data %}
+
+<tr>
+
+<td>{{ forloop.counter }}</td>
+
+<td>{{ i.patient }}</td>
+
+<td>{{ i.doctor }}</td>
+
+<td>{{ i.deleted_at }}</td>
+
+<td>
+
+<a href="{% url 'restore_record' i.id %}">
+
+Restore
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

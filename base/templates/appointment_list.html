@@ -1,0 +1,81 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Appointment List</h1>
+
+<a href="{% url 'create_appointment' %}">
+
+Add Appointment
+
+</a>
+
+|
+
+<a href="{% url 'appointment_history' %}">
+
+View Deleted Appointments
+
+</a>
+
+<table border="1">
+
+<tr>
+
+<th>SL NO</th>
+
+<th>Patient</th>
+
+<th>Doctor</th>
+
+<th>Date</th>
+
+<th>Time</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+{% for i in data %}
+
+<tr>
+
+<td>{{ forloop.counter }}</td>
+
+<td>{{ i.patient }}</td>
+
+<td>{{ i.doctor }}</td>
+
+<td>{{ i.appointment_date }}</td>
+
+<td>{{ i.appointment_time }}</td>
+
+<td>{{ i.status }}</td>
+
+<td>
+
+<a href="{% url 'update_appointment' i.id %}">
+
+Edit
+
+</a>
+
+|
+
+<a href="{% url 'delete_appointment' i.id %}">
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

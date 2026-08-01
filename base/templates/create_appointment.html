@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Add Appointment</h1>
+
+<a href="{% url 'appointment_list' %}">
+
+View All Appointments
+
+</a>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">
+
+        Submit
+
+    </button>
+
+</form>
+
+{% endblock %}

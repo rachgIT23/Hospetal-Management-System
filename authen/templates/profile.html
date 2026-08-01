@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+<h2>Welcome {{ user.first_name }}</h2>
+
+<p><b>First Name :</b> {{ user.first_name }}</p>
+
+<p><b>Last Name :</b> {{ user.last_name }}</p>
+
+<p><b>Email :</b> {{ user.email }}</p>
+
+<p><b>Username :</b> {{ user.username }}</p>
+
+<br>
+
+<a href="{% url 'update_profile' %}">
+
+<button>Update Profile</button>
+
+</a>
+
+<a href="{% url 'change_password' %}">
+
+<button>Change Password</button>
+
+</a>
+
+{% endblock %}

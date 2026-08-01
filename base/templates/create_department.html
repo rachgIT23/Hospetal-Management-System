@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Add Department</h1>
+
+<a href="{% url 'department_list' %}">
+
+View Departments
+
+</a>
+
+<br><br>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button type="submit">
+
+        Submit
+
+    </button>
+
+</form>
+
+{% endblock %}

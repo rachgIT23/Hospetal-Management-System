@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Update Patient</h1>
+
+<a href="{% url 'patient_list' %}">
+
+Back
+
+</a>
+
+<form method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button>
+
+Update
+
+</button>
+
+</form>
+
+{% endblock %}
